@@ -30,7 +30,7 @@ export default function Footer() {
 
         <div className="footer__col">
           <h2 className="footer__title">Клиентам</h2>
-          <a className="btn btn--ghost footer__pay" href={SITE.paymentUrl} target="_blank" rel="noopener noreferrer">
+          <a className="btn btn--ghost footer__pay" href={SITE.paymentUrl}>
             Оплатить
           </a>
           <ul className="footer__list">

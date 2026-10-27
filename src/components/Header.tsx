@@ -53,7 +53,7 @@ export default function Header() {
               </NavLink>
             )
           )}
-          <a className="btn btn--ghost" href={SITE.paymentUrl} target="_blank" rel="noopener noreferrer">
+          <a className="btn btn--ghost" href={SITE.paymentUrl}>
             Оплатить
           </a>
         </nav>

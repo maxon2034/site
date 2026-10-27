@@ -1,8 +1,16 @@
+// Ссылка на оплату берётся из переменной окружения VITE_PAYMENT_URL (Vercel → Settings → Environment Variables).
+// Если схема не указана, добавляем https://
+function normalizeUrl(raw?: string): string {
+  const v = (raw ?? "").trim();
+  if (!v) return "#";
+  return /^https?:\/\//i.test(v) ? v : `https://${v}`;
+}
+
 export const SITE = {
   name: "Ольга Повшко",
   title: "Психолог",
   method: "Гештальт-терапия",
-  paymentUrl: import.meta.env.VITE_PAYMENT_URL ?? "#",
+  paymentUrl: normalizeUrl(import.meta.env.VITE_PAYMENT_URL),
   formEndpoint: import.meta.env.VITE_FORM_ENDPOINT ?? "",
 
   // Контакты: пустые значения в футере не показываются
@@ -17,10 +25,10 @@ export const SITE = {
 
   // Данные для футера (заполнить, когда пришлёте реквизиты)
   legal: {
-    name: "ИП Фамилия Имя Отчество", // заменить на данные Ольги
-    registration: "Свидетельство о государственной регистрации выдано (дата), (орган)",
-    unp: "(номер)",
-    address: "(юридический адрес)",
+    name: "ИП Повшко Ольга Владимировна",
+    registration: "", // при необходимости: "Свидетельство о государственной регистрации выдано ..."
+    unp: "693427675",
+    address: "Минский р-н, а.г. Озерцо, ул. Цветочная д. 3, кв. 1",
   },
 
   // Логотипы платёжных систем: положить файлы в public/payments/ и указать пути
