@@ -364,3 +364,15 @@ p { margin: 0 0 1em; }
   .diploma { padding: 14px; gap: 14px; }
   .diploma__thumb { width: 72px; height: 96px; }
 }
+
+/* ===== v9: мобильный главный экран = высота фото, без пустоты сверху ===== */
+@media (max-width: 860px) {
+  .hero { display: block; height: auto; min-height: 0; padding: 0; }
+  .hero__inner { position: static; display: block; width: 100%; margin: 0; padding: 0; }
+  .hero__photo { position: relative; inset: auto; display: block; width: 100%; }
+  .hero__photo img {
+    display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; max-height: 100svh;
+    object-fit: cover; object-position: 50% 12%; border-radius: 0; box-shadow: none;
+  }
+  .hero__text { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 0 20px 28px; }
+}

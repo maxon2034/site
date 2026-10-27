@@ -1,7 +1,27 @@
 [
-  { "url": "https://www.b17.ru/article/1016110/", "title": "", "image": "" },
-  { "url": "https://www.b17.ru/article/961930/", "title": "", "image": "" },
-  { "url": "https://www.b17.ru/blog/655841/", "title": "", "image": "" },
-  { "url": "https://www.b17.ru/article/856554/", "title": "", "image": "" },
-  { "url": "https://www.b17.ru/article/856239/", "title": "", "image": "" }
+  {
+    "url": "https://www.b17.ru/article/1016110/",
+    "title": "Развестись, чтобы наконец-то встретиться",
+    "image": "/articles/1.jpg"
+  },
+  {
+    "url": "https://www.b17.ru/article/961930/",
+    "title": "Почему мы спасаем тех, кто не просит? Забота или спасательство, где грань?",
+    "image": "/articles/2.jpg"
+  },
+  {
+    "url": "https://www.b17.ru/blog/655841/",
+    "title": "Одиночество вдвоём. Почему мы ссоримся, когда хотим близости?",
+    "image": "/articles/3.jpg"
+  },
+  {
+    "url": "https://www.b17.ru/article/856554/",
+    "title": "Почему идея самодостаточности может быть ловушкой?",
+    "image": "/articles/4.jpg"
+  },
+  {
+    "url": "https://www.b17.ru/article/856239/",
+    "title": "Куда исчезает «Я», когда появляется «Мы»?",
+    "image": "/articles/5.jpg"
+  }
 ]
