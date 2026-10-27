@@ -34,8 +34,6 @@ export const SITE = {
   // Логотипы платёжных систем: положить файлы в public/payments/ и указать пути
   paymentLogos: [] as { src: string; alt: string }[],
 
-  privacyUrl: "#",
-  offerUrl: "#",
   paymentMethodsUrl: "",
 };
 

@@ -34,12 +34,6 @@ export default function Footer() {
             Оплатить
           </a>
           <ul className="footer__list">
-            <li>
-              <a href={SITE.privacyUrl}>Политика конфиденциальности и обработки персональных данных</a>
-            </li>
-            <li>
-              <a href={SITE.offerUrl}>Договор оферты</a>
-            </li>
             {SITE.paymentMethodsUrl && (
               <li>
                 <a href={SITE.paymentMethodsUrl}>Методы оплаты</a>

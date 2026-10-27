@@ -5,26 +5,23 @@ export default function Articles() {
     <section className="section page">
       <div className="container">
         <h1 className="page__title">Статьи</h1>
-        {ARTICLES.length === 0 ? (
-          <p className="muted">Статьи появятся здесь совсем скоро.</p>
-        ) : (
-          <ul className="cards">
-            {ARTICLES.map((a) => (
-              <li key={a.id} className="card">
-                <time className="muted small" dateTime={a.date}>
-                  {new Date(a.date).toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" })}
-                </time>
-                <h2 className="card__title">{a.title}</h2>
-                <p>{a.excerpt}</p>
-                {a.url && (
-                  <a href={a.url} className="card__link">
-                    Читать
-                  </a>
-                )}
+        <ul className="articles">
+          {ARTICLES.map((a) => {
+            const title = a.title || "Читать статью";
+            return (
+              <li key={a.url}>
+                <a className="article" href={a.url} target="_blank" rel="noopener noreferrer">
+                  {a.image ? (
+                    <img className="article__img" src={a.image} alt="" loading="lazy" />
+                  ) : (
+                    <span className="article__img article__img--empty" aria-hidden />
+                  )}
+                  <span className="article__title">{title}</span>
+                </a>
               </li>
-            ))}
-          </ul>
-        )}
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

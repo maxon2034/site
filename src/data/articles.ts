@@ -1,10 +1,9 @@
+import raw from "./articles.json";
+
 export interface Article {
-  id: string;
-  title: string;
-  date: string; // ГГГГ-ММ-ДД
-  excerpt: string;
-  url?: string; // внешняя ссылка или путь
+  url: string; // ссылка на статью
+  title: string; // название статьи
+  image: string; // путь к картинке, например /articles/1.jpg
 }
 
-// Заполним, когда пришлёте статьи
-export const ARTICLES: Article[] = [];
+export const ARTICLES: Article[] = raw;

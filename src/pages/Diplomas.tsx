@@ -1,40 +1,52 @@
 import { useState } from "react";
 import { DIPLOMAS, type Diploma } from "../data/diplomas";
 
-export default function Diplomas() {
-  const [active, setActive] = useState<Diploma | null>(null);
+function Thumb({ d }: { d: Diploma }) {
+  const [broken, setBroken] = useState(false);
+  return (
+    <a
+      className="diploma__thumb"
+      href={d.photo}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Открыть фото: ${d.title}`}
+    >
+      {broken ? (
+        <span className="diploma__fallback">Открыть фото</span>
+      ) : (
+        <img
+          src={d.thumb || d.photo}
+          alt=""
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          onError={() => setBroken(true)}
+        />
+      )}
+    </a>
+  );
+}
 
+export default function Diplomas() {
   return (
     <section className="section page">
       <div className="container">
-        <h1 className="page__title">Дипломы и сертификаты</h1>
-        {DIPLOMAS.length === 0 ? (
-          <p className="muted">Документы об образовании будут добавлены здесь.</p>
-        ) : (
-          <ul className="gallery">
-            {DIPLOMAS.map((d) => (
-              <li key={d.id}>
-                <button className="gallery__item" onClick={() => setActive(d)} aria-label={`Открыть: ${d.title}`}>
-                  <img src={d.image} alt={d.title} loading="lazy" />
-                  <span>{d.title}</span>
-                  <span className="muted small">
-                    {d.institution}, {d.year}
-                  </span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
+        <h1 className="page__title">Образование</h1>
+        <ul className="diplomas">
+          {DIPLOMAS.map((d) => (
+            <li key={d.photo} className="diploma">
+              <div className="diploma__body">
+                <h2 className="diploma__title">{d.title}</h2>
+                {d.details.map(([label, value]) => (
+                  <p key={label} className="diploma__row">
+                    {label}: {value}
+                  </p>
+                ))}
+              </div>
+              <Thumb d={d} />
+            </li>
+          ))}
+        </ul>
       </div>
-
-      {active && (
-        <div className="lightbox" role="dialog" aria-modal="true" aria-label={active.title} onClick={() => setActive(null)}>
-          <img src={active.image} alt={active.title} />
-          <button className="lightbox__close" aria-label="Закрыть">
-            ×
-          </button>
-        </div>
-      )}
     </section>
   );
 }

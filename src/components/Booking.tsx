@@ -89,14 +89,6 @@ export default function Booking() {
 
             <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hp" aria-hidden />
 
-            <label className="check">
-              <input type="checkbox" name="consent" required />
-              <span>
-                Я ознакомился(лась) с <a href={SITE.privacyUrl}>политикой конфиденциальности</a> и{" "}
-                <a href={SITE.offerUrl}>публичным договором</a> *
-              </span>
-            </label>
-
             <button className="btn btn--primary" type="submit" disabled={status === "sending"}>
               {status === "sending" ? "Отправляем…" : "Записаться на консультацию"}
             </button>

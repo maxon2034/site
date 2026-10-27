@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "articles": "node scripts/fetch-articles.mjs",
+    "diplomas": "node scripts/fetch-diplomas.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

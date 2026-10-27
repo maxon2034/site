@@ -1,10 +1,10 @@
+import raw from "./diplomas.json";
+
 export interface Diploma {
-  id: string;
   title: string;
-  institution: string;
-  year: string;
-  image: string; // путь в /public/diplomas/...
+  details: [label: string, value: string][];
+  photo: string; // ссылка на полное фото сертификата (открывается по клику)
+  thumb?: string; // маленькое фото в списке; если не задано, берётся photo
 }
 
-// Заполним, когда пришлёте сканы
-export const DIPLOMAS: Diploma[] = [];
+export const DIPLOMAS = raw as Diploma[];
