@@ -379,3 +379,9 @@ p { margin: 0 0 1em; }
 
 /* h1 в виде небольшой подписи над цитатой */
 .hero__kicker { font-family: var(--font-sans); font-weight: 400; line-height: 1.7; }
+
+/* «С кем я работаю» и «Формат» */
+.about__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 1.6em; }
+.about__cols h3 { margin-top: 0; }
+.about__cols .plain { margin-bottom: 0; }
+@media (max-width: 520px) { .about__cols { gap: 20px; } }

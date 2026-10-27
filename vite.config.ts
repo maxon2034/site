@@ -1,6 +1,13 @@
 import { defineConfig, loadEnv, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 
+// Если в переменную вставили тег целиком или с кавычками, достаём из него только код
+function cleanCode(raw: string): string {
+  const v = raw.trim();
+  const m = /content\s*=\s*["']([^"']+)["']/i.exec(v);
+  return (m ? m[1] : v).replace(/["'<>\s]/g, "");
+}
+
 // SEO: подставляет адрес сайта в index.html, добавляет коды подтверждения для Google/Яндекса
 // и создаёт robots.txt и sitemap.xml при сборке.
 function seo(siteUrl: string, google: string, yandex: string): Plugin {
@@ -36,6 +43,6 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, ".", "VITE_");
   const siteUrl = (env.VITE_SITE_URL || "https://olga-povshko.vercel.app").replace(/\/+$/, "");
   return {
-    plugins: [react(), seo(siteUrl, env.VITE_GOOGLE_VERIFICATION ?? "", env.VITE_YANDEX_VERIFICATION ?? "")],
+    plugins: [react(), seo(siteUrl, cleanCode(env.VITE_GOOGLE_VERIFICATION ?? ""), cleanCode(env.VITE_YANDEX_VERIFICATION ?? ""))],
   };
 });
