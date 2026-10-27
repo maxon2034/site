@@ -15,6 +15,14 @@ function ScrollManager() {
   }, []);
 
   useEffect(() => {
+    const titles: Record<string, string> = {
+      "/articles": "Статьи: Ольга Повшко, психолог",
+      "/diplomas": "Образование и сертификаты: Ольга Повшко, психолог",
+    };
+    document.title = titles[pathname] ?? "Ольга Повшко: психолог, гештальт-терапевт, Минск";
+  }, [pathname]);
+
+  useEffect(() => {
     if (hash) {
       const el = document.getElementById(hash.slice(1));
       if (el) {

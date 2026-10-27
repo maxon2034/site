@@ -376,3 +376,6 @@ p { margin: 0 0 1em; }
   }
   .hero__text { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 0 20px 28px; }
 }
+
+/* h1 в виде небольшой подписи над цитатой */
+.hero__kicker { font-family: var(--font-sans); font-weight: 400; line-height: 1.7; }

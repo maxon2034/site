@@ -9,9 +9,9 @@ export default function Hero() {
           <img src="/olga.jpg" alt={`${SITE.title} ${SITE.name}`} width={853} height={1280} />
         </div>
         <div className="hero__text">
-          <p className="hero__kicker">
+          <h1 className="hero__kicker">
             {SITE.title} {SITE.name}
-          </p>
+          </h1>
           <blockquote className="hero__quote">
             <p className="hero__quote-main">
               «Я не могу изменить то, что произошло в прошлом, но я могу изменить то, как я живу с этим прямо сейчас»
@@ -21,9 +21,6 @@ export default function Hero() {
               вами я бережно ищу дорогу к новому качеству вашей жизни.
             </p>
           </blockquote>
-          <h1 className="visually-hidden">
-            {SITE.title} {SITE.name}, {SITE.method.toLowerCase()}
-          </h1>
         </div>
       </div>
     </section>
