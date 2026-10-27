@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const TOPICS = [
@@ -24,11 +25,37 @@ const SPECIALIZATIONS = [
 ];
 
 export default function About() {
+  const stickyRef = useRef<HTMLDivElement>(null);
+
+  // Левый блок «висит» строго по центру видимой области (под шапкой), какой бы высоты он ни был
+  useEffect(() => {
+    const el = stickyRef.current;
+    if (!el) return;
+    const update = () => {
+      const headerH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-h")) || 56;
+      const free = window.innerHeight - headerH;
+      if (el.offsetHeight > free - 48) {
+        el.style.position = "static"; // блок выше экрана: не закрепляем
+        return;
+      }
+      el.style.position = "";
+      el.style.top = `${headerH + (free - el.offsetHeight) / 2}px`;
+    };
+    update();
+    window.addEventListener("resize", update);
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => {
+      window.removeEventListener("resize", update);
+      ro.disconnect();
+    };
+  }, []);
+
   return (
     <section className="section section--sand" id="about">
       <div className="container about">
         <div className="about__side">
-          <div className="about__sticky">
+          <div className="about__sticky" ref={stickyRef}>
             <h2>Обо мне</h2>
             <ul className="facts">
             <li>Психолог, специализация: психология семейных отношений</li>
